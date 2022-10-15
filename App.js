@@ -1,13 +1,13 @@
+import 'react-native-gesture-handler';
 import React from 'react';
-import {SafeAreaView, StatusBar, Text} from 'react-native';
+import {StatusBar} from 'react-native';
+import Navigation from './src/Navigation';
 
 export default function App() {
   return (
     <>
       <StatusBar barStyle="dark-content" />
-      <SafeAreaView>
-        <Text>Hello, React Native!</Text>
-      </SafeAreaView>
+      <Navigation />
     </>
   );
 }
