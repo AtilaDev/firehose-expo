@@ -2,9 +2,15 @@ import React from 'react';
 import {Text} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import {createDrawerNavigator} from '@react-navigation/drawer';
+import {Button} from 'react-native-paper';
 
 function Hello() {
-  return <Text>Hello, Navigation!</Text>;
+  return (
+    <>
+      <Text>Hello, Navigation!</Text>
+      <Button mode="contained">Hello Paper</Button>
+    </>
+  );
 }
 
 const Drawer = createDrawerNavigator();
