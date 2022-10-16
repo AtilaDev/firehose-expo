@@ -15,6 +15,10 @@ function Hello() {
   );
 }
 
+function Another() {
+  return <Text>Another Screen</Text>;
+}
+
 const Drawer = createDrawerNavigator();
 
 function NavigationContents() {
@@ -23,6 +27,7 @@ function NavigationContents() {
       drawerContent={props => <CustomNavigationDrawer {...props} />}
     >
       <Drawer.Screen name="Hello" component={Hello} />
+      <Drawer.Screen name="Another" component={Another} />
     </Drawer.Navigator>
   );
 }
