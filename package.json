@@ -40,6 +40,5 @@
   "jest": {
     "preset": "jest-expo"
   },
-  "private": true,
-  "resolutions": { "react-native": "0.69.6" }
+  "private": true  
 }
