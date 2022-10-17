@@ -1,6 +1,6 @@
 # Firehose Expo
 
-A brief description of your app.
+Client for the Firehose link-saving app.
 
 ## Requirements
 
