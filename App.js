@@ -1,8 +1,8 @@
 import 'react-native-gesture-handler';
 import React from 'react';
-import {StatusBar} from 'react-native';
-import {Provider as PaperProvider, DefaultTheme} from 'react-native-paper';
+import {Provider as PaperProvider} from 'react-native-paper';
 import {SafeAreaProvider} from 'react-native-safe-area-context';
+import {StatusBar} from 'expo-status-bar';
 import Navigation from './src/Navigation';
 import useTheme from './src/useTheme';
 
@@ -12,7 +12,7 @@ export default function App() {
   return (
     <PaperProvider theme={theme}>
       <SafeAreaProvider>
-        <StatusBar barStyle="dark-content" />
+        <StatusBar style="light" />
         <Navigation />
       </SafeAreaProvider>
     </PaperProvider>
