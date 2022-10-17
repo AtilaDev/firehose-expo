@@ -1,12 +1,13 @@
 import React from 'react';
-import {Text} from 'react-native';
+// import {Text} from 'react-native';
 import {NavigationContainer, useNavigation} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {createDrawerNavigator} from '@react-navigation/drawer';
-import {Button} from 'react-native-paper';
+import {Button, Text} from 'react-native-paper';
 
 import CustomNavigationDrawer from './components/CustomNavigationDrawer';
 import CustomNavigationBar from './components/CustomNavigationBar';
+import ScreenBackground from './components/ScreenBackground';
 
 const HelloStack = createNativeStackNavigator();
 const Hello = () => (
@@ -31,7 +32,7 @@ const Hello = () => (
 function HelloScreen1() {
   const navigation = useNavigation();
   return (
-    <>
+    <ScreenBackground>
       <Text>Hello Screen 1</Text>
       <Button
         mode="contained"
@@ -39,15 +40,15 @@ function HelloScreen1() {
       >
         Go to Screen 2
       </Button>
-    </>
+    </ScreenBackground>
   );
 }
 
 function HelloScreen2() {
   return (
-    <>
+    <ScreenBackground>
       <Text>Hello Screen 2!</Text>
-    </>
+    </ScreenBackground>
   );
 }
 
@@ -67,7 +68,11 @@ const Another = () => (
 );
 
 function AnotherScreen1() {
-  return <Text>Another Screen</Text>;
+  return (
+    <ScreenBackground>
+      <Text>Another Screen</Text>
+    </ScreenBackground>
+  );
 }
 
 const Drawer = createDrawerNavigator();
