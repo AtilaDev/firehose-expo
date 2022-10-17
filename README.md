@@ -1,4 +1,4 @@
-# (your app name)
+# Firehose Expo
 
 A brief description of your app.
 
