@@ -11,6 +11,7 @@ export default function CustomNavigationBar({navigation, options, back}) {
       )}
 
       <Appbar.Content title={options.title} />
+
       <Appbar.Action
         accessibilityLabel="Menu"
         icon="menu"

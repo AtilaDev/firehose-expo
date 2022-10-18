@@ -9,6 +9,8 @@ import CustomNavigationDrawer from './components/CustomNavigationDrawer';
 import CustomNavigationBar from './components/CustomNavigationBar';
 import ScreenBackground from './components/ScreenBackground';
 
+import {large, useBreakpoint} from './breakpoints';
+
 const HelloStack = createNativeStackNavigator();
 const Hello = () => (
   <HelloStack.Navigator
@@ -77,11 +79,18 @@ function AnotherScreen1() {
 
 const Drawer = createDrawerNavigator();
 
+const getDrawerTypeForBreakpoint = breakpoint =>
+  breakpoint === 'large' ? 'permanent' : 'back';
+
 function NavigationContents() {
+  const breakpoint = useBreakpoint();
+  const drawerTypeForBreakpoint = getDrawerTypeForBreakpoint(breakpoint);
+
   return (
     <Drawer.Navigator
       screenOptions={{
         headerShown: false,
+        drawerType: drawerTypeForBreakpoint,
       }}
       drawerContent={props => <CustomNavigationDrawer {...props} />}
     >
