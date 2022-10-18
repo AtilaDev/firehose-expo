@@ -1,15 +1,32 @@
 import React from 'react';
-// import {Text} from 'react-native';
 import {NavigationContainer, useNavigation} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {createDrawerNavigator} from '@react-navigation/drawer';
 import {Button, Text} from 'react-native-paper';
-
 import CustomNavigationDrawer from './components/CustomNavigationDrawer';
 import CustomNavigationBar from './components/CustomNavigationBar';
 import ScreenBackground from './components/ScreenBackground';
-
 import {large, useBreakpoint} from './breakpoints';
+
+const linking = {
+  config: {
+    screens: {
+      Hello: {
+        initialRouteName: 'HelloScreen1',
+        screens: {
+          HelloScreen1: '/hello',
+          HelloScreen2: '/hello/screen2',
+        },
+      },
+      Another: {
+        initialRouteName: 'AnotherScreen1',
+        screens: {
+          AnotherScreen1: '/another',
+        },
+      },
+    },
+  },
+};
 
 const HelloStack = createNativeStackNavigator();
 const Hello = () => (
@@ -80,7 +97,7 @@ function AnotherScreen1() {
 const Drawer = createDrawerNavigator();
 
 const getDrawerTypeForBreakpoint = breakpoint =>
-  breakpoint === 'large' ? 'permanent' : 'back';
+  breakpoint === large ? 'permanent' : 'back';
 
 function NavigationContents() {
   const breakpoint = useBreakpoint();
@@ -102,7 +119,7 @@ function NavigationContents() {
 
 export default function Navigation() {
   return (
-    <NavigationContainer>
+    <NavigationContainer linking={linking}>
       <NavigationContents />
     </NavigationContainer>
   );
