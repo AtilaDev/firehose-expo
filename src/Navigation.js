@@ -6,6 +6,7 @@ import {Button, Text} from 'react-native-paper';
 import CustomNavigationDrawer from './components/CustomNavigationDrawer';
 import CustomNavigationBar from './components/CustomNavigationBar';
 import ScreenBackground from './components/ScreenBackground';
+import SignInScreen from './screens/SignInScreen';
 import {large, useBreakpoint} from './breakpoints';
 
 const linking = {
@@ -99,6 +100,21 @@ const Drawer = createDrawerNavigator();
 const getDrawerTypeForBreakpoint = breakpoint =>
   breakpoint === large ? 'permanent' : 'back';
 
+const SignInStack = createNativeStackNavigator();
+const SignIn = () => (
+  <SignInStack.Navigator
+    screenOptions={{
+      header: props => <CustomNavigationBar {...props} />,
+    }}
+  >
+    <SignInStack.Screen
+      name="SignInScreen"
+      component={SignInScreen}
+      options={{title: 'Sign in'}}
+    />
+  </SignInStack.Navigator>
+);
+
 function NavigationContents() {
   const breakpoint = useBreakpoint();
   const drawerTypeForBreakpoint = getDrawerTypeForBreakpoint(breakpoint);
@@ -111,6 +127,7 @@ function NavigationContents() {
       }}
       drawerContent={props => <CustomNavigationDrawer {...props} />}
     >
+      <Drawer.Screen name="SignIn" component={SignIn} />
       <Drawer.Screen name="Hello" component={Hello} />
       <Drawer.Screen name="Another" component={Another} />
     </Drawer.Navigator>
